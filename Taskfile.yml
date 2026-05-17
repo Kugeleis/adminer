@@ -1,0 +1,38 @@
+version: '3'
+
+tasks:
+  up:
+    desc: Start all services in the background
+    cmds:
+      - docker compose up -d
+
+  down:
+    desc: Stop and remove all containers
+    cmds:
+      - docker compose down
+
+  restart:
+    desc: Restart all services
+    cmds:
+      - task: down
+      - task: up
+
+  logs:
+    desc: Follow logs from all services
+    cmds:
+      - docker compose logs -f
+
+  ps:
+    desc: List running services
+    cmds:
+      - docker compose ps
+
+  sh:db:
+    desc: Open a shell in the database container
+    cmds:
+      - docker compose exec db bash
+
+  sh:adminer:
+    desc: Open a shell in the adminer container
+    cmds:
+      - docker compose exec adminer bash
