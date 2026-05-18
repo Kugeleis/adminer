@@ -10,7 +10,9 @@ services:
     environment:
       ADMINER_DEFAULT_SERVER: ${ADMINER_DEFAULT_SERVER}
       ADMINER_DESIGN: rmsoft
+      # ADMINER_PLUGINS: "tables-filter permanent-login"
+      ADMINER_PLUGINS: 'tables-filter dump-json'
 
   db:
-    image: mysql:5.6
+    image: mysql:8.0.46
     restart: "no"
